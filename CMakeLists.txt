@@ -23,6 +23,7 @@ include_directories(libusb)
 if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
 	set(PLATFORM_SRC
 		libusb/os/linux_usbfs.c
+		libusb/os/linux_netlink.c
 		libusb/os/poll_posix.c
 		libusb/os/threads_posix.c)
 	include_directories(linux)
