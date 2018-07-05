@@ -28,6 +28,14 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
 		libusb/os/threads_posix.c)
 	include_directories(linux)
 	add_definitions(-Wall -Werror)
+elseif(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
+	set(PLATFORM_SRC
+		libusb/os/poll_windows.c
+		libusb/os/threads_windows.c
+		libusb/os/windows_nt_common.c
+		libusb/os/windows_usbdk.c
+		libusb/os/windows_winusb.c)
+	include_directories(msvc)
 endif()
 
 
