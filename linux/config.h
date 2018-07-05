@@ -5,6 +5,7 @@
 #pragma once
 
 #define OS_LINUX
+#define _GNU_SOURCE 1
 #define HAVE_POLL_H
 #define HAVE_SYS_TIME_H
 #define POLL_NFDS_TYPE nfds_t
