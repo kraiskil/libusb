@@ -36,9 +36,19 @@ elseif(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
 		libusb/os/windows_usbdk.c
 		libusb/os/windows_winusb.c)
 	include_directories(msvc)
+elseif(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+	set(PLATFORM_SRC
+		libusb/os/darwin_usb.c
+		libusb/os/poll_posix.c
+		libusb/os/threads_posix.c)
+	include_directories(Xcode)
+	set(PLATFORM_LIB
+		"-framework CoreFoundation"
+		"-framework IOKit")
 endif()
 
 
 add_library(libusb SHARED
 	${COMMON_SRC}
 	${PLATFORM_SRC})
+target_link_libraries(libusb ${PLATFORM_LIB})
