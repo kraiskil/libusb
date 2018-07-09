@@ -48,7 +48,7 @@ elseif(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
 endif()
 
 
-add_library(libusb SHARED
+add_library(libusb
 	${COMMON_SRC}
 	${PLATFORM_SRC})
 target_link_libraries(libusb ${PLATFORM_LIB})
