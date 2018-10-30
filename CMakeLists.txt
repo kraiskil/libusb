@@ -49,7 +49,7 @@ elseif(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
 endif()
 
 
-add_library(libusb
+add_library(usb
 	${COMMON_SRC}
 	${PLATFORM_SRC})
-target_link_libraries(libusb ${PLATFORM_LIB})
+target_link_libraries(usb ${PLATFORM_LIB})
