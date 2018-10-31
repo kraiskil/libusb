@@ -8,6 +8,7 @@ project(libusb C)
 #the restriction vesrsion>2.4. No other reason yet
 cmake_minimum_required(VERSION 2.5)
 
+option(INSTALL_LIBUSB "Install libUSB library." ON)
 
 set(COMMON_SRC
 	libusb/core.c
@@ -49,7 +50,13 @@ elseif(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
 endif()
 
 
-add_library(usb
+add_library(usb SHARED
 	${COMMON_SRC}
 	${PLATFORM_SRC})
 target_link_libraries(usb ${PLATFORM_LIB})
+
+if( INSTALL_LIBUSB )
+	install(
+		TARGETS usb
+		DESTINATION ${CMAKE_INSTALL_LIBDIR})
+endif()
