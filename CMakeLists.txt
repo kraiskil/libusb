@@ -54,6 +54,10 @@ add_library(usb SHARED
 	${COMMON_SRC}
 	${PLATFORM_SRC})
 target_link_libraries(usb ${PLATFORM_LIB})
+target_include_directories(usb
+	PUBLIC
+		$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/libusb>
+	)
 
 if( INSTALL_LIBUSB )
 	install(
